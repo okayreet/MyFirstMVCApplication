@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><th:block th:if="${users != null}">
+<table>
+
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.password}"></td>
+    </tr>
+</table></th:block>
+<div th:unless="${users}">No data</div>
+<br>
+<span th:text="${users}"></span>
+<form  method="get" action="/users">
+    <input type="text" name="user_name">
+    <input type="submit" value="Search">
+    </form>
+</body>
+</html>
